@@ -1,4 +1,4 @@
-# G2 — MATLAB structural analysis, visualization and nonlinear dynamics
+# G2 — MATLAB structural analysis, visualization, nonlinear statics & dynamics
 
 [Public repository](https://github.com/mgrubisic/G2-MATLAB-predecessor-to-OpenSees) · [MIT license](LICENSE.md) · [Visualization](docs/VISUALIZATION.md) · [Dynamics](docs/DYNAMICS.md) · [Units](docs/UNITS.md)
 
