@@ -1,0 +1,8 @@
+results/
+EXAMPLES/output/
+__pycache__/
+*.pyc
+*.asv
+*.m~
+*.mex*
+._*

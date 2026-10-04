@@ -6,6 +6,8 @@
 %
 
 % Include self-weight in analysis (0=no, 1=yes)
+addpath(fileparts(fileparts(mfilename('fullpath')))); setup_g2;
+clear MATERIAL
 sw = 0;
 
 % Base units
@@ -106,8 +108,12 @@ LOAD = zeros(size(XYZ,1),3);
 
 % Create model
 clear a
-a = {'Ziemian Frame', XYZ, BOUND, CONNECT, MATERIAL, LOAD};
+a = {'Ziemian Frame', XYZ, BOUND, CONNECT, MATERIAL, LOAD, ...
+    g2vis.units('Metric','Length','mm','Force','kN')};
 
 m1 = model(a)
 
-linearAnalysis(m1);
+m1 = linearAnalysis(m1);
+g2vis.dashboard(m1);
+g2vis.plot_reactions(m1);
+g2vis.viewer(m1);

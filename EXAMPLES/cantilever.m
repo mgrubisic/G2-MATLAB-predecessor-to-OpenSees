@@ -16,6 +16,7 @@
 % (1) Define model parameters and loads
 % -------------------------------------
 % Number of elements and integration points/element
+addpath(fileparts(fileparts(mfilename('fullpath')))); setup_g2;
 nelem = 10;
 nint  = 5;
 
@@ -68,7 +69,8 @@ LOAD            = zeros(nelem+1,3);
 LOAD(nelem+1,:) = [-Axial ref 0];		% Load at tip
 
 % Creat model
-a  = { 'Inelastic Cantilever', XYZ, BOUND, CONNECT, MATERIAL, LOAD };
+a  = { 'Inelastic Cantilever', XYZ, BOUND, CONNECT, MATERIAL, LOAD, ...
+    g2vis.units('Imperial','Length','in','Force','kip') };
 m1 = model(a)
 
 
@@ -78,7 +80,7 @@ tol = 1e-4;
 dof = 3*nelem - 1; % Vertical DOF at tip
 
 % Uniform load increment
-%[m1,plt,plte] = simpleNewtonRaphson(m1, [ nstep 1 10 tol],[dof],[1:nelem]);
+%[plt,plte,m1] = simpleNewtonRaphson(m1, [ nstep 1 10 tol],[dof],[1:nelem]);
 
 % Variable load increment
 gamma = 1.0;
@@ -92,17 +94,19 @@ nstep = size(plt,1) - 1;
 plot(m1)
 
 % Plot lateral load as function of tip displacement
-figure(2)
+figure('Name','Cantilever load-displacement','NumberTitle','off')
 clf
+g2vis.style_light(gcf)
 
 sr = 1:(nstep+1);
 plot(plt(sr,2),plt(sr,1)*ref,'b-square')
+g2vis.label_values(gca,[plt(sr,2) plt(sr,1)*ref],plt(sr,1)*ref)
 grid
-xlabel('Tip Displacement (in.)')
-ylabel('Lateral Load (kip)')
+xlabel('Tip Displacement [in]')
+ylabel('Lateral Load [kip]')
 
 tlab = sprintf(['Cant. Beam: nelem=%2d, nint=%1d, alpha=%5.3f,' ...
-		' Axial=%6.1f'], nelem,nint,alpha,maxaxial);
+		' Axial=%6.1f [kip]'], nelem,nint,alpha,maxaxial);
 title(tlab)
 
 
@@ -144,30 +148,36 @@ depth = h/2 - eaxr./curv;
 
 % (6) Plot curvature, axial strain, and depth distributions
 % ---------------------------------------------------------
-figure(3)
+figure('Name','Cantilever section response','NumberTitle','off')
 clf
+g2vis.style_light(gcf)
 
 % Curvature
 subplot(3,1,1)
 plot(x,curv)
+g2vis.label_values(gca,[x(:) curv(end,:)'],curv(end,:)')
 grid
-ylabel('Curvature (1/in)')
+ylabel('Curvature [1/in]')
+xlabel('X [in]')
 title(tlab)
 
 % Axial strain at reference axis
 subplot(3,1,2)
 plot(x,eaxr)
+g2vis.label_values(gca,[x(:) eaxr(end,:)'],eaxr(end,:)')
 axis([0 len -.01 0 ])
 grid
-ylabel('Strain')
+ylabel('Strain [1]')
+xlabel('X [in]')
 
 % Depth of neutral axis (from top)
 subplot(3,1,3)
 plot(x,depth)
+g2vis.label_values(gca,[x(:) depth(end,:)'],depth(end,:)')
 grid
 axis([0 len 0 12 ]);
-ylabel('NA Depth (in.)')
-xlabel('X (in.)')
+ylabel('NA Depth [in]')
+xlabel('X [in]')
 
 
 % (7) Compute maximum strain
@@ -181,3 +191,14 @@ em  = eam - h/2 * km;
 str2 = sprintf('\nMax. curv=%11.3e, Max. ea=%11.3e\nMaximum Strain=%11.3e', ...
 		km, eam, em );
 disp(str2)
+
+% OpsVis-style overview, committed sections, fibers, and interactive history.
+g2vis.dashboard(m1);
+g2vis.plot_reactions(m1);
+g2vis.plot_section(m1,'curvature');
+g2vis.plot_section(m1,'strain');
+g2vis.plot_fiber_section(m1,1,1,'Component','stress');
+g2vis.plot_fiber_section(m1,1,1,'Component','strain');
+g2vis.plot_history(m1,nelem+1,2);
+g2vis.viewer(m1);
+g2vis.anim_defo(m1);

@@ -6,6 +6,8 @@
 %
 
 % Base units
+addpath(fileparts(fileparts(mfilename('fullpath')))); setup_g2;
+clear MATERIAL
 kN = 1.0;
 mm = 1.0;
 
@@ -85,8 +87,12 @@ LOAD(3,1) = 2.0/3*kN;
 
 % Create model
 clear a
-a = {'Strongback Frame', XYZ, BOUND, CONNECT, MATERIAL, LOAD};
+a = {'Strongback Frame', XYZ, BOUND, CONNECT, MATERIAL, LOAD, ...
+    g2vis.units('Metric','Length','mm','Force','kN')};
 
 m1 = model(a)
 
-linearAnalysis(m1);
+m1 = linearAnalysis(m1);
+g2vis.dashboard(m1);
+g2vis.plot_reactions(m1);
+g2vis.viewer(m1);
