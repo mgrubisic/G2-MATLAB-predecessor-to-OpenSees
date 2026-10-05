@@ -27,8 +27,8 @@ The broader history traces the OpenSees architecture to Frank McKenna's 1997 Ber
 ```mermaid
 flowchart LR
     G3["G3 — early C++ framework"] --> OS["OpenSees — C++ engine"]
-    G3 -. "related teaching architecture, 1999" .-> G2["G2 — MATLAB / CE 221"]
-    OS --> TCL["Tcl interface"]
+    G3 -. "Related teaching architecture, 1999" .-> G2["G2 — MATLAB / CE 221"]
+    OS --> TCL["OpenSees — Tcl interface"]
     OS --> PY["OpenSeesPy — Python interface"]
     G2 --> FORK["This maintained MATLAB edition"]
 ```
