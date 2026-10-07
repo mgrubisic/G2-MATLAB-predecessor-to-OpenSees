@@ -1,8 +1,8 @@
-# G2 — MATLAB structural analysis, visualization, nonlinear statics & dynamics
+# G2 — MATLAB structural analysis, visualisation, nonlinear statics & dynamics
 
 [Public repository](https://github.com/mgrubisic/G2-MATLAB-predecessor-to-OpenSees) · [MIT license](LICENSE.md) · [Visualization](docs/VISUALIZATION.md) · [Dynamics](docs/DYNAMICS.md) · [Units](docs/UNITS.md)
 
-G2 is an educational object-oriented MATLAB framework originally written by **Gregory L. Fenves at UC Berkeley in 1999**. This maintained edition adds visualization, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
+G2 is an educational object-oriented MATLAB framework originally written by **[Gregory L. Fenves](https://caee.utexas.edu/person/gregory-fenves/) at UC Berkeley in 1999**. This maintained edition adds visualisation, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
 
 The repository name describes G2 as a predecessor to OpenSees. More precisely, G2 was the MATLAB teaching companion of **G3**, the C++ framework that became OpenSees: they shared an architectural approach. G2 is a separate implementation with its own element library. [Prof. Scott's historical account](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/).
 
@@ -22,7 +22,7 @@ The repository name describes G2 as a predecessor to OpenSees. More precisely, G
 
 ### Architectural origins
 
-The broader history traces the OpenSees architecture to Frank McKenna's 1997 Berkeley doctoral research, supervised by Fenves. The modular design separated model components from analysis algorithms. The framework was called G3 during early PEER development; around 2000 the OpenSees name expressed its role as an extensible earthquake simulation system. [AEC Engineering Hub's historical synthesis](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
+The broader history traces the OpenSees architecture back to [Frank McKenna's](https://www.linkedin.com/in/frank-mckenna-11960136/) 1997 [doctoral research at Berkeley](https://opensees.berkeley.edu/OpenSees/doc/fmkdiss.pdf), supervised by Fenves. The modular design separated model components from analysis algorithms. The framework was called G3 during early PEER development; around 2000, the OpenSees name expressed its role as an extensible earthquake simulation system. [AEC Engineering Hub's historical synthesis](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
 
 ```mermaid
 flowchart LR
@@ -37,17 +37,17 @@ The dotted link represents architectural kinship, not conversion of one codebase
 
 ### G2: nonlinear analysis in the classroom
 
-In January 1999 Fenves created G2 for **CE 221 at UC Berkeley**, while OpenSees was still called G3. Its MATLAB code included elastic trusses and beam-columns, nonlinear trusses, two-component beam models, displacement-based and force-based distributed plasticity, wide-flange fiber sections with bilinear materials, and Newton/Modified Newton static procedures.
+In January 1999, Fenves created G2 for **CE 221 at UC Berkeley**, while OpenSees was still called G3. Its MATLAB code included elastic trusses and beam-columns, nonlinear trusses, two-component beam models, displacement-based and force-based distributed plasticity, wide-flange fibre sections with bilinear materials, and Newton/Modified Newton static procedures.
 
 Michael H. Scott recovered a surviving copy in October 2019 and shared it on GitHub with permission. His account records the original MATLAB 5.0 target and successful use with R2018b. [Only Their Mother Can Tell Them Apart, 2019](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/).
 
 ### G3: the early OpenSees landscape
 
-Scott's firsthand account of 1999 describes McKenna's truss, elastic beam-column and uniaxial materials; Remo de Souza's force-based beam-column and fiber sections for CE 224; Fenves's zero-length element; and Scott's C++ ports of Filippou's concrete and steel routines. This initially small collection grew into the larger framework. [Early Landscape of OpenSees, 2020](https://openseesdigital.com/2020/11/07/early-landscape-of-opensees/).
+Scott's firsthand account of 1999 describes McKenna's truss, elastic beam-column and uniaxial materials; Remo de Souza's force-based beam-column and fibre sections for CE 224; Fenves's zero-length element; and Scott's C++ ports of Filippou's concrete and steel routines. This initially small collection grew into the larger framework. [Early Landscape of OpenSees, 2020](https://openseesdigital.com/2020/11/07/early-landscape-of-opensees/).
 
 ### The broader OpenSees system
 
-OpenSees expanded into structural and geotechnical simulation through a wider research community. Its C++ engine supports replaceable model and analysis components. Tcl was the early scripting interface; OpenSeesPy exposes the engine to Python workflows. These interfaces do not imply that G2 has the same capabilities. [AEC Engineering Hub's history](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
+OpenSees expanded into structural and geotechnical simulation within the broader research community. Its C++ engine supports replaceable model and analysis components. Tcl was the early scripting interface; OpenSeesPy exposes the engine to Python workflows. These interfaces do not imply that G2 has the same capabilities. [AEC Engineering Hub's history](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
 
 | Period | Development | Connection to G2 |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ setup_g2;
 ziemian_elcentro;
 ```
 
-`setup_g2` adds `src` and `EXAMPLES` for the current session. Examples initialize their paths too. Start a fresh MATLAB session when switching from an older checkout already on the path.
+`setup_g2` adds `src` and `EXAMPLES` for the current session. Examples initialise their paths too. Start a fresh MATLAB session when switching from an older checkout already on the path.
 
 ## Examples
 
@@ -122,7 +122,7 @@ run_all_examples('results'); % all six examples; PNG, MAT and modal reports
 
 The supplied [record](data/earthquakes/ElCentro.txt) has **1560 samples in g**, **dt=0.02 s**, duration **31.18 s** and PGA **0.31882 g**. Horizontal UniformExcitation converts g to m/s² once with **9.80665**, without additional scaling; TRBDF2 is the default.
 
-Original joints and pinned bases are retained, with two displacement-based fiber elements per member. Ten static steps establish gravity equilibrium. Demonstration assumptions: E=200 GPa, Fy=250 MPa, 1% hardening, steel density 7.85 tonne/m³, 3% Rayleigh damping, and floor line weights **50/35 kN/m**. Floor masses are tributary weight/g, separate from consistent distributed steel mass.
+Original joints and pinned bases are retained, with two displacement-based fibre elements per member. Ten static steps establish gravity equilibrium. Demonstration assumptions: E=200 GPa, Fy=250 MPa, 1% hardening, steel density 7.85 tonne/m³, 3% Rayleigh damping, and floor line weights **50/35 kN/m**. Floor masses are tributary weight/g, separate from consistently distributed steel mass.
 
 ```matlab
 [m,r,p,s] = ziemian_elcentro('Plot',false);
@@ -131,7 +131,7 @@ load('results/ziemian_elcentro_results.mat');
 ziemian_elcentro_plots(dynamicResult.History,earthquakeSummary);
 ```
 
-The default run converged without cutbacks and activated material yielding. Approximate peaks: roof displacement **0.14852 m**, base shear **241.07 kN**, story drifts **2.249% / 0.2964%**. These values belong to the stated assumptions. Equivalent rectangular I sections reproduce geometric A/I, subject to fiber discretization; kinematics are small-displacement without P-delta. This is not a validated reproduction of the original published benchmark. Details: [Dynamics](docs/DYNAMICS.md), [record notes](data/earthquakes/README.md).
+The default run converged without cutbacks and activated material yielding. Approximate peaks: roof displacement **0.14852 m**, base shear **241.07 kN**, story drifts **2.249% / 0.2964%**. These values belong to the stated assumptions. Equivalent rectangular I sections reproduce geometric A/I, subject to fibre discretisation; kinematics are small-displacement without P-delta. This is not a validated reproduction of the original published benchmark. Details: [Dynamics](docs/DYNAMICS.md), [record notes](data/earthquakes/README.md).
 
 Selected generated illustrations are tracked as documentation assets; bulk outputs remain in `results`.
 
@@ -157,11 +157,11 @@ modes = modalAnalysis(m,6);
 p = modalProperties(m,modes,'-print','-file','results/ModalReport.txt','-return');
 ```
 
-`modalProperties` returns total/free mass, center of mass, generalized masses, modal participation factors, effective masses and cumulative percentages for MX/MY/RMZ. HRZ diagonalization handles total/free masses; participation uses the original free mass matrix. `-unorm` changes normalization while preserving effective modal masses. [Dynamics](docs/DYNAMICS.md) documents formulas, failure semantics and benchmark qualifications.
+`modalProperties` returns total/free mass, centre of mass, generalised masses, modal participation factors, effective masses and cumulative percentages for MX/MY/RMZ. HRZ diagonalisation handles total/free masses; participation uses the original free mass matrix. `-unorm` changes normalisation while preserving effective modal masses. [Dynamics](docs/DYNAMICS.md) documents formulas, failure semantics and benchmark qualifications.
 
 The supported scope is planar G2 truss/beam models, not the complete OpenSees 3D, shell/solid, soil, contact, multipoint or multi-support libraries. G2 runs its own MATLAB formulations.
 
-The OpsVis-inspired `+g2vis` package offers geometry/supports, loads/moments, interpolated deformation, displacement colors, N/V/M, reactions, fiber stress/strain/state, curvature, mass, time histories, hysteresis, dashboards, a viewer and GIF animation. Curves are colored; quantities have unit labels and default annotations; legends are transparent with `Box='off'`. Supports attach at their tops and remain on deformation/force diagrams. M diagrams use the established mirrored default; `'Invert',true` reflects only the shape, preserving signs.
+The OpsVis-inspired `+g2vis` package offers geometry/supports, loads/moments, interpolated deformation, displacement colours, N/V/M, reactions, fibre stress/strain/state, curvature, mass, time histories, hysteresis, dashboards, a viewer and GIF animation. Curves are colored; quantities have unit labels and default annotations; legends are transparent with `Box='off'`. Supports attach at their tops and remain on deformation/force diagrams. M diagrams use the established mirrored default; `'Invert', true` reflects only the shape, preserving signs.
 
 ```matlab
 g2vis.dashboard(m);
@@ -172,7 +172,7 @@ g2vis.viewer(m);
 g2vis.anim_defo(m,'Filename','results/response.gif');
 ```
 
-See [Visualization](docs/VISUALIZATION.md) for API and export details.
+See [Visualisation](docs/VISUALIZATION.md) for API and export details.
 
 ## Units
 
@@ -221,7 +221,7 @@ verify_opensees_reference;
 verify_modal_reference;
 ```
 
-Reference CSV/JSON and generated PNG/GIF/MAT/reports belong in Git-ignored `results`. OpenSeesPy 3.8.0 comparisons agree around 1e-11 for transients and 1e-15 for scaled modal properties. The consistent-mass beam comparison uses equivalent nodal loading to account for a documented upstream ground-load discrepancy. [Dynamics](docs/DYNAMICS.md) gives the exact qualifications.
+Reference CSV/JSON and generated PNG/GIF/MAT/reports belong in Git-ignored `results`. OpenSeesPy 3.8.0 comparisons agree around 1e-11 for transients and 1e-15 for scaled modal properties. The consistent-mass beam comparison uses equivalent nodal loading to account for a documented discrepancy in upstream ground loading. [Dynamics](docs/DYNAMICS.md) gives the exact qualifications.
 
 The Windows publishing workflow also has an isolated Git integration test:
 
@@ -229,7 +229,7 @@ The Windows publishing workflow also has an isolated Git integration test:
 python -m unittest discover -s tests -p test_publishing.py -v
 ```
 
-It checks manifest exclusions, preserved remote history, filenames/messages with spaces, preview behavior and a failed test gate against a local bare repository, with a controlled MATLAB executable. Real MATLAB numerical tests are run separately.
+It checks manifest exclusions, preserved remote history, filenames/messages with spaces, preview behaviour, and a failed test gate against a local bare repository, with a controlled MATLAB executable. Real MATLAB numerical tests are run separately.
 
 ## Updating the public GitHub repository
 
@@ -252,7 +252,7 @@ git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 ```
 
-Git Credential Manager or your existing authenticated Git setup handles credentials. A concurrent remote update rejects the normal push; rerun from the new remote head. No force-push, automatic merge or reset is used. See [Publishing](docs/PUBLISHING.md) for the synchronization manifest, checks and workflow.
+Git Credential Manager or your existing authenticated Git setup handles credentials. A concurrent remote update rejects the normal push; rerun from the new remote head. No force-push, automatic merge or reset is used. See [Publishing](docs/PUBLISHING.md) for the synchronisation manifest, checks and workflow.
 
 ## Credits, sources and license
 
@@ -260,7 +260,7 @@ Git Credential Manager or your existing authenticated Git setup handles credenti
 - **Michael H. Scott:** preservation and 2019 sharing, plus the firsthand historical accounts.
 - **Marin Grubišić:** maintenance of this repository and its maintained MATLAB edition.
 - **OpenSees contributors:** separate C++ formulations and documentation used for numerical references.
-- **OpsVis contributors:** visualization workflow used as a design reference.
+- **OpsVis contributors:** visualisation workflow used as a design reference.
 
 Historical reading:
 
