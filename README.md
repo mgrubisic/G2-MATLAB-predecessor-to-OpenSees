@@ -1,6 +1,6 @@
 # G2 — MATLAB structural analysis, visualisation, nonlinear statics & dynamics
 
-[Public repository](https://github.com/mgrubisic/G2-MATLAB-predecessor-to-OpenSees) · [MIT license](LICENSE.md) · [Visualization](docs/VISUALIZATION.md) · [Dynamics](docs/DYNAMICS.md) · [Units](docs/UNITS.md)
+**[Public repository](https://github.com/mgrubisic/G2-MATLAB-predecessor-to-OpenSees)** · **[MIT license](LICENSE.md)** · **[Visualization](docs/VISUALIZATION.md)** · **[Dynamics](docs/DYNAMICS.md)** · **[Units](docs/UNITS.md)**
 
 > [!NOTE]
 > G2 is an educational object-oriented MATLAB framework originally written by **[Prof. Gregory L. Fenves](https://caee.utexas.edu/person/gregory-fenves/) at UC Berkeley in 1999**. This maintained edition adds visualisation, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
