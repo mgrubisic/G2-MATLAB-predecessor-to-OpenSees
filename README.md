@@ -2,9 +2,9 @@
 
 [Public repository](https://github.com/mgrubisic/G2-MATLAB-predecessor-to-OpenSees) · [MIT license](LICENSE.md) · [Visualization](docs/VISUALIZATION.md) · [Dynamics](docs/DYNAMICS.md) · [Units](docs/UNITS.md)
 
-G2 is an educational object-oriented MATLAB framework originally written by **[Gregory L. Fenves](https://caee.utexas.edu/person/gregory-fenves/) at UC Berkeley in 1999**. This maintained edition adds visualisation, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
+G2 is an educational object-oriented MATLAB framework originally written by **[Prof. Gregory L. Fenves](https://caee.utexas.edu/person/gregory-fenves/) at UC Berkeley in 1999**. This maintained edition adds visualisation, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
 
-The repository name describes G2 as a predecessor to OpenSees. More precisely, G2 was the MATLAB teaching companion of **G3**, the C++ framework that became OpenSees: they shared an architectural approach. G2 is a separate implementation with its own element library. [Prof. Scott's historical account](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/).
+The repository name describes G2 as a predecessor to OpenSees. More precisely, G2 was the MATLAB teaching companion of **G3**, the C++ framework that became OpenSees: they shared an architectural approach. G2 is a separate implementation with its own element library. **[Prof. Scott's historical account](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/)**.
 
 ## Contents
 
@@ -22,7 +22,7 @@ The repository name describes G2 as a predecessor to OpenSees. More precisely, G
 
 ### Architectural origins
 
-The broader history traces the OpenSees architecture back to [Frank McKenna's](https://www.linkedin.com/in/frank-mckenna-11960136/) 1997 [doctoral research at Berkeley](https://opensees.berkeley.edu/OpenSees/doc/fmkdiss.pdf), supervised by Fenves. The modular design separated model components from analysis algorithms. The framework was called G3 during early PEER development; around 2000, the OpenSees name expressed its role as an extensible earthquake simulation system. [AEC Engineering Hub's historical synthesis](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
+The broader history traces the OpenSees architecture back to **[Dr. Frank McKenna's](https://www.linkedin.com/in/frank-mckenna-11960136/)** 1997 **[doctoral research at Berkeley](https://opensees.berkeley.edu/OpenSees/doc/fmkdiss.pdf)**, supervised by Fenves. The modular design separated model components from analysis algorithms. The framework was called G3 during early PEER development; around 2000, the OpenSees name expressed its role as an extensible earthquake simulation system. [AEC Engineering Hub's historical synthesis](https://aec-hub.mamut-systems.com/en/history-of-opensees/).
 
 ```mermaid
 flowchart LR
@@ -39,11 +39,11 @@ The dotted link represents architectural kinship, not conversion of one codebase
 
 In January 1999, Fenves created G2 for **CE 221 at UC Berkeley**, while OpenSees was still called G3. Its MATLAB code included elastic trusses and beam-columns, nonlinear trusses, two-component beam models, displacement-based and force-based distributed plasticity, wide-flange fibre sections with bilinear materials, and Newton/Modified Newton static procedures.
 
-Michael H. Scott recovered a surviving copy in October 2019 and shared it on GitHub with permission. His account records the original MATLAB 5.0 target and successful use with R2018b. [Only Their Mother Can Tell Them Apart, 2019](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/).
+Michael H. Scott recovered a surviving copy in October 2019 and shared it on GitHub with permission. His account records the original MATLAB 5.0 target and successful use with R2018b. **[Only Their Mother Can Tell Them Apart, 2019](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/)**.
 
 ### G3: the early OpenSees landscape
 
-Scott's firsthand account of 1999 describes McKenna's truss, elastic beam-column and uniaxial materials; Remo de Souza's force-based beam-column and fibre sections for CE 224; Fenves's zero-length element; and Scott's C++ ports of Filippou's concrete and steel routines. This initially small collection grew into the larger framework. [Early Landscape of OpenSees, 2020](https://openseesdigital.com/2020/11/07/early-landscape-of-opensees/).
+Scott's firsthand account of 1999 describes McKenna's truss, elastic beam-column and uniaxial materials; Remo de Souza's force-based beam-column and fibre sections for CE 224; Fenves's zero-length element; and Scott's C++ ports of Filippou's concrete and steel routines. This initially small collection grew into the larger framework. **[Early Landscape of OpenSees, 2020](https://openseesdigital.com/2020/11/07/early-landscape-of-opensees/)**.
 
 ### The broader OpenSees system
 
@@ -58,7 +58,7 @@ OpenSees expanded into structural and geotechnical simulation within the broader
 | October–November 2019 | G2 recovered and shared by Scott | Preservation of the teaching code |
 | Maintained edition | Visualization, units, dynamics and modal APIs | Extensions described in this repository |
 
-The timeline follows the three linked accounts: the Scott posts are firsthand recollections, while the AEC Hub article is a secondary synthesis. See also the [UC Berkeley OpenSees manual](https://opensees.berkeley.edu/OpenSees/manuals/usermanual/index.html).
+The timeline follows the three linked accounts: the Scott posts are firsthand recollections, while the AEC Hub article is a secondary synthesis. See also the **[UC Berkeley OpenSees manual](https://opensees.berkeley.edu/OpenSees/manuals/usermanual/index.html)**.
 
 ## Repository layout
 
