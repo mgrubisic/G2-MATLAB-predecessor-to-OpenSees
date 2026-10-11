@@ -5,7 +5,7 @@
 > [!NOTE]
 > G2 is an educational object-oriented MATLAB framework originally written by **[Prof. Gregory L. Fenves](https://caee.utexas.edu/person/gregory-fenves/) at UC Berkeley in 1999**. This maintained edition adds visualisation, coherent units, nonlinear transient analysis and modal properties to the historical planar element formulations.
 > 
-> The repository name describes G2 as a predecessor to OpenSees. More precisely, G2 was the MATLAB teaching companion of **G3**, the C++ framework that became OpenSees: they shared an architectural approach. G2 is a separate implementation with its own element library. **[Prof. Scott's historical account](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/)**.
+> The repository name describes G2 as a predecessor to OpenSees. More precisely, G2 was the MATLAB teaching companion of **G3**, the C++ framework that became OpenSees: they shared an architectural approach. G2 is a separate implementation with its own element library. **[Prof. Michael H. Scott's historical account](https://openseesdigital.com/2019/11/07/only-their-mother-can-tell-them-apart/)**.
 
 ## Contents
 
